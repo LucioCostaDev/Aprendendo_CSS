@@ -1,17 +1,17 @@
 const colors = {
-    p: '#420a0a',
-    div:'#42230a',
-    span: '#42420a',
-    section: '#22420a',
-     ul: '#0a4217',
-     ol: '#0a4239',
-     Header: '#0a2842',
-     nav: '#0c0a42',
-     main: '#330a42',
-     footer: '#420a34',
-     form: '#420a13',
-     body: '#26a384'
-     padrao: '#0d0e17',
+    p: '#fc0303',
+    div:'#fc5e03',
+    span: '#fcb103',
+    section: '#a5fc03',
+     ul: '#0ffc03',
+     ol: '#03fca1',
+     Header: '#03f0fc',
+     nav: '#034afc',
+     main: '#5e03fc',
+     footer: '#ba03fc',
+     form: '#fc03db',
+     body: '#fc0362',
+     padrao: '#fc0303',
      get(tag) {
         return this[tag] ? this[tag] : this.padrao
      }
@@ -24,7 +24,7 @@ document.querySelectorAll('.tag').forEach(elemento => {
     // caixas ficam borda verde 
     elemento.style.borderColor = colors.get(tagName)
 
-    // Pergunta: está contido na lista de classe o (nolabel)se estiver contido não entre nesse trecho, se não tiver o nolabel aplique e cria
+    // Pergunta: está contido na lista de classe o (nolabel)se estiver contido não entre nesse trecho, se não tiver o nolabel aplique e cria ? ou seja se O NO LABEL ESTIVER NAO FAÇA
     if (!elemento.classList.contains('nolabel')) {
         // vai criar um elemento (tag) diretamente no javaS e vai injetar em todas as tags que tiverem o elemento TAG
         const label = document.createElement('label')
