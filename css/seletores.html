@@ -6,11 +6,33 @@
     <title>CSS Selectors</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        /* seletores */
+        /* por classe .classe */
+        /* por ID #id */
+        /* por ID > tag (#id > div) / Pai > filhos  */
+        /* por ID tag (#id tag)  Pai ao filho */
+        /* tag para tag adjacente ou seja apos (p + ul) */
+        /* tag para tag porem dentro do PAi (p ~ ol) */
+        /* por propriedade [feira] */
+        /* por propriedade com valor [feira=casa]*/
+        /* por propriedade com mais de um valor [feira~=escritorio] */
+        /* por propriedade de associação [feira*=sa] */
+        /* por tag primeiro filho (span:nth-child(1)) */
+        /* por tag impares (section > :nth-child(odd)) */
+        /* por tag par (section > :nth-child(even)) */
+        /* por tag par ou impa com tags (section > :nth-child(even), ul,p) */
+        /* por tag par ouy impa com propriedade (section > :nth-child(even) label) */
+        /* por tag a tag com tipo especifico (section > span:nth-of-type(2)) */
+
+        section > span:nth-of-type(2){
+            color: yellow;
+            background-color: burlywood;
+        }
+
     </style>
 </head>
 
-<body>
+<body class="tag">
     <div class='tag'>
         <div class='tag'>
             <p class='tag'>1</p>
@@ -32,8 +54,10 @@
                     <section class='tag'>
                         <span class='tag'>1</span>
                         <p class='tag'>2</p>
-                        <span class='tag'>3</span>
+                        <p class='tag'>3</p>
+                        <span class='tag'>4</span>
                     </section>
+                    <footer class="tag"></footer>
                 </div>
             </div>
         </div>
