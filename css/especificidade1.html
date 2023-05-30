@@ -6,11 +6,50 @@
     <title>Especificidade CSS</title>
     <style>
         /* https://developer.mozilla.org/pt-BR/docs/Web/CSS/Specificity */
-    </style>
+
+        /* 
+        Em linhas gerais...
+
+        1. A regra !IMPORTANT ela torna qualquer propriedade 
+        prioridade acima da muita alta ex. padding: 10px        !important
+        2. seletores mais específicos
+        3. última regra processada (empate)
+
+        Observação tambem tem prioridade nas propriedades
+        */
+
+        
+        /* normal */
+        p { 
+            background-color: #aaa;
+        }
+        
+        /* prioridade alta */
+        .observacao {
+            background-color: #5f5;
+            border: dashed 5px;
+            padding: 20px;
+            font-size: 40px;
+        }
+        
+        /* prioridade muito alta */
+        p.observacao {
+            padding: 2px;
+            /* fundo do red ao amarelo para direita */
+            background: linear-gradient(to right, red, yellow);
+        }
+
+        /* prioridade altissima */
+        #observacao, p.observacao {
+            background: blue;
+        }
+        
+        </style>
 </head>
 
 <body>
     <p class='observacao'>Olha essa observação!!!!</p>
+    <p id='observacao'>Olha essa observação!!!!</p>
 </body>
 
 </html>
