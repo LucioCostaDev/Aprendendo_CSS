@@ -5,7 +5,35 @@
     <meta charset="UTF-8">
     <title>Display</title>
     <style>
-        /* ... */
+        body {
+            font-size: 40px;
+            color: white;
+            background-color: coral;
+        }
+
+        ul { padding: 0;}
+        div { background-color: seagreen;}
+        span { background-color:  dodgerblue;}
+        li {background-color: purple;}
+
+        /* obs. o span não considera width e height por ser diplay inline  por padrão*/
+        div, span, li {
+            /* valor de largura percentual */
+            width: 50%;
+            /* valor de largura absluto */
+            width: 200px;
+            /* altura */
+            height: 80px;
+            /* valor de distanciamento interno */
+            padding-top: 30px;
+            text-align: center;
+            /* torna todas propriedades em block colocando em linha quebra as linhas*/
+            /* display: block; */
+            /* torna todas as propriedades em inline colocando separadamente nas mesma linha */
+            /* display: inline; */
+            /* torna todas as propriedades em inline e block que com isso aceita tanto altura como largura, criando cards*/
+            display: inline-block;
+        }
     </style>
 </head>
 
