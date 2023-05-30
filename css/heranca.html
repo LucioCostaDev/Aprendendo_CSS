@@ -6,18 +6,25 @@
     <title>Herança</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <style>
-        body, div {
+        body {
             font-family: 'Roboto Mono', monospace;
             font-size: 40px;
             border: solid 3px red;
             padding: 50px;
+            /* em todos os lados
+            margin: 10px; */
+            /* em cima em baixo
+            margin: 100px 100px; */
+            /* em todos os lados */
+            margin: 10px 20px 30px 40px; 
+
         }
 
-        /* div {
-            /* herda a border do body */
+        /* herda a border e o padding do body */
+        div {
             border: inherit;
             padding: inherit;
-        } */
+        }
 
     </style>
 </head>
