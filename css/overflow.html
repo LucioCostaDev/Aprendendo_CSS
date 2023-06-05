@@ -7,13 +7,22 @@
         div {
             font-size: 40px;
             height: 100px;
-            width: 260px;
+            /* width: 260px; */
             border: solid 3px;
+            /* coloco todo conteudo dentro da caixa */
+            overflow: hidden;
+            /* Cria um scrol para visualizar o texto */
+            overflow: scroll;
+            /* overflow-x coloca um scroll apenas em baixo da caixa */
+            /* overflow-x: scroll; */
+            /* overflow-y: hidden; */
+
         }
     </style>
 </head>
 <body>
     <div>
+        Objetivo aqui e colocar texto dentro da caixa sem haver o overflow ou seja sai da caixa ou impossibilitar de ver o texto
         TudoFuncionaMuitoBemEmCSS!!!
         Texto muito grande para caber nessa div.
         Já pensou qual será o comportamento padrão?
