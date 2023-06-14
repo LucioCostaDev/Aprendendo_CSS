@@ -19,32 +19,40 @@
 
         .flex-container {
             /* deixar por coluna  */
-            /* display: flex; */
+            display: flex;
             /* coloca por linha */
-            /* flex-direction: column; */
+            flex-direction: column;
             /* inverte a ordem de baixo pra cima em linha */
-            /* flex-direction: column-reverse; */
-            /* por coluna invertendo  */
-            /* flex-direction: row-reverse; */
+            flex-direction: column-reverse;
+            /* por coluna invertendo os valores como se fosse um float right */
+            flex-direction: row-reverse;
             /* padão em linha*/
-            /* flex-direction: row; */
-            /* width: 50%; */
+            flex-direction: row;
+            width: 50%;
             /* quebra alinha respeitando a caixa */
-            /* flex-wrap: wrap; */
+            flex-wrap: wrap;
             /* inverte as linhas respeitando a caixa */
-            /* flex-wrap: wrap-reverse; */
-            /* flex-flow: row wrap; */
-            /* height: 200px; */
-            /* flex-flow: column-reverse wrap; */
-            /* flex-flow: row wrap; */
+            flex-wrap: wrap-reverse;
+            /* propriedade dupla linha com espaço */
+            flex-flow: row wrap;
+            height: 200px;
+            /* quebra em varias linhas */
+            flex-flow: column-reverse wrap;
+            flex-flow: row wrap;
 
             /* organização */
-            /* justify-content: flex-start; */
-            /* justify-content: flex-end; */
-            /* justify-content: center; */
-            /* justify-content: space-around; */
-            /* flex-direction: row-reverse; */
-            /* justify-content: space-between; */
+
+            justify-content: flex-start;
+            /* inicia apartir do final */
+            justify-content: flex-end;
+            /* centralizar na linha os conteudos */
+            justify-content: center;
+            /* espaçamento */
+            justify-content: space-around;
+            /* inversão dos conteudos */
+            flex-direction: row-reverse;
+            /* espaço entre os elementos */
+            justify-content: space-between;
 
             /* Cross Axis */
             /* height: 400px; */
