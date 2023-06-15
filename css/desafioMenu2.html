@@ -7,6 +7,7 @@
     <!-- FONTES FORAM EXPORTADAS GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     <!-- CONFIGURAÇÃO DO STYLE -->
     <style>
         * { 
@@ -34,62 +35,18 @@
             box-sizing: content-box;
         }
 
-        .logo {
-            /* permiti definir uma largura e altura ao elemento, as margens e preenchimentos superiores e inferiores são respeitados / obs. faz com que o botão toggue fique na mesma linha*/
-            display: inline-block;
-            /* altura da logo */
-            height: 80px;
-            /* espaçamento dentro da logo */
-            padding: 15px;
-        }
         /* obs. deifinida 100% de 80px sendo 50px da imagem, padding 15 top e 15 inf, totalizando 30px */
         .logo img {
-            height: 100%;
-        }
-        /* botão toggle */
-        .menu-toggle {
-            /* flutuar para colocar na direita */
-            float: right;
-            /* cor as linhas */
-            color: #eee;
-            /* cor do fundo do botão */
-            background-color: #555;
-            /* borda do botão */
-            border: solid 1px #777;
-            /* arredondamento da borda */
-            border-radius: 5px;
-            /* altura do botão */
-            height: 40px;
-            /* distanciamento do conteudo do centro */
-            padding: 10px 20px;
-            /* distancimento das laterais do header*/
-            margin: 20px 15px;
-        }
-
-        .menu {
-            /* mater na mesma linha do header */
-            display: inline-block;
-            vertical-align: top;
-            height: 80px;
-            padding: 25px;
+            height: 50px;
         }
 
         /* obs. por padrão a tag ul tem margin e padding definido pelo broswer */
         .menu ul {
+            list-style: none;
             margin: 0;
             padding: 0;
         }
-
-        .menu li {
-            /* inline-block deixa na mesma linha, e vai considerar o tamanho, a largura, os padding  */
-            display: inline-block;
-        }
         
-        .menu a {
-            /* espalamento de conteudo apenas no menu */
-            padding: 10px;
-        }
-
         .cabecalho a {
             /* tirar os padrões do link */
             text-decoration: none;
@@ -97,25 +54,17 @@
             color: #eee;
             /* tamanho padrão */
             font-size: 1.3em;
-        }
-        /* aside  */
-        .autenticacao {
-            /* flutuar para direita */
-            float: right;
-            /* altura */
-            height: 80px;
-            /* espaçamento do conteudo */
-            padding: 25px;
+
+            padding: 10px 15px;
         }
 
         /* efeito na navegação */
-        .menu a:hover,
-        .menu a.selected {
+        .menu a:hover {
             background-color: #4fad4f;
             color: #000;
         }
 
-        .botao {
+        .cabecalho .botao {
             /* arredondamento das bordas */
             border-radius: 30px;
             /* espaçamento conteudo */
@@ -128,26 +77,34 @@
             background: red;
             color: #fff;
         }
-        /* Se a menu toggle for menor que 679 ela desaparece */
-        @media (min-width: 679px) {
-            .menu-toggle {
-                display: none;
-            }
-        }
-        /* ate 680 o menu some  */
-        @media (max-width: 680px) {
-            .menu {
-                display: none;
-            }
-        }
-        /* se a largura maxima for menor 610 ou menor que 910 o menu some */
-        @media (max-width: 910px) {
-            .autenticacao {
-                display: none;
-            }
+
+        /* ======================== */
+        /*   Solução com Flex Box   */
+        /* ======================== */
+
+        .cabecalho {
+            display: flex;
+            /* alinha elementos no centro */
+            align-items: center;
+            /* as pontas não tem espaço  entre eles tem  */
+            justify-content: space-between;
         }
 
+        .menu {
+            /* faz com que os elementos ganhem mais espaços */
+            flex-grow: 10;
+        }
 
+        .menu ul {
+            /* coloca todos elementos na mesma linha  */
+            display: flex;
+            /* justify-content: space-around; */
+        }
+
+        .menu li {
+            /* espaçamento dos links obs. por padrão o li e block*/
+            margin: 0px 30px;
+        }
 
     </style>
 </head>
@@ -184,7 +141,7 @@
         </aside>
     </header>
 
-    <script>
+    <!-- <script>
         // ONHASHCHANGE função que chama #(ancora for alterada #)
         window.onhashchange = function(e) {
             const oldURL  = e.oldURL.split('#') [1]
@@ -196,7 +153,7 @@
             newLink && newLink.classList.add('selected')
 
         }
-    </script>
+    </script> -->
 </body>
 
 </html>
