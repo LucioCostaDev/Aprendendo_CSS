@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <!-- FONTES FORAM EXPORTADAS GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- CONFIGURAÇÃO DO STYLE -->
+    <style>
+        * { 
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Tira as margens */
+            margin: 0;
+            /* todas fontes no formato exportado */
+            font-family: 'Oswald', sans-serif;
+            /* Cor no fundo do corpo */
+            background-color: lightgray;
+        }
+
+        /* definiu uma classe para header */
+        .cabecalho {
+            /* definiu uma cor de fundo para o header */
+            background: #333;
+            /* criação de uma borda */
+            border-bottom: solid 5px #4fad4f;
+            /* colo uma altura */
+            height: 80px;
+            /* fornece o comportamento padrão ou seja a definição de largura de um elemento para pixels tanto na caixa, borda ou prernchimento será adicionadaa largura renderizada o que pode torna mais largo que o definido */
+            box-sizing: content-box;
+        }
+
+        .logo {
+            /* permiti definir uma largura e altura ao elemento, as margens e preenchimentos superiores e inferiores são respeitados / obs. faz com que o botão toggue fique na mesma linha*/
+            display: inline-block;
+            /* altura da logo */
+            height: 80px;
+            /* espaçamento dentro da logo */
+            padding: 15px;
+        }
+        /* obs. deifinida 100% de 80px sendo 50px da imagem, padding 15 top e 15 inf, totalizando 30px */
+        .logo img {
+            height: 100%;
+        }
+        /* botão toggle */
+        .menu-toggle {
+            /* flutuar para colocar na direita */
+            float: right;
+            /* cor as linhas */
+            color: #eee;
+            /* cor do fundo do botão */
+            background-color: #555;
+            /* borda do botão */
+            border: solid 1px #777;
+            /* arredondamento da borda */
+            border-radius: 5px;
+            /* altura do botão */
+            height: 40px;
+            /* distanciamento do conteudo do centro */
+            padding: 10px 20px;
+            /* distancimento das laterais do header*/
+            margin: 20px 15px;
+        }
+
+        .menu {
+            /* mater na mesma linha do header */
+            display: inline-block;
+            vertical-align: top;
+            height: 80px;
+            padding: 25px;
+        }
+
+        /* obs. por padrão a tag ul tem margin e padding definido pelo broswer */
+        .menu ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            /* inline-block deixa na mesma linha, e vai considerar o tamanho, a largura, os padding  */
+            display: inline-block;
+        }
+        
+        .menu a {
+            /* espalamento de conteudo apenas no menu */
+            padding: 10px;
+        }
+
+        .cabecalho a {
+            /* tirar os padrões do link */
+            text-decoration: none;
+            /* fonte na cor branca */
+            color: #eee;
+            /* tamanho padrão */
+            font-size: 1.3em;
+        }
+        /* aside  */
+        .autenticacao {
+            /* flutuar para direita */
+            float: right;
+            /* altura */
+            height: 80px;
+            /* espaçamento do conteudo */
+            padding: 25px;
+        }
+
+        /* efeito na navegação */
+        .menu a:hover,
+        .menu a.selected {
+            background-color: #4fad4f;
+            color: #000;
+        }
+
+        .botao {
+            /* arredondamento das bordas */
+            border-radius: 30px;
+            /* espaçamento conteudo */
+            padding: 10px 25px;
+            /* distanciamento das laterais */
+            margin: 10px;
+        }
+
+        .destaque {
+            background: red;
+            color: #fff;
+        }
+        /* Se a menu toggle for menor que 679 ela desaparece */
+        @media (min-width: 679px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+        /* ate 680 o menu some  */
+        @media (max-width: 680px) {
+            .menu {
+                display: none;
+            }
+        }
+        /* se a largura maxima for menor 610 ou menor que 910 o menu some */
+        @media (max-width: 910px) {
+            .autenticacao {
+                display: none;
+            }
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+            </a>
+        </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="#inicio">Início</a>
+                </li>
+                <li>
+                    <a href="#cursos">Cursos</a>
+                </li>
+                <li>
+                    <a href="#sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="autenticacao">
+            <a href="#login">Login</a>
+            <a href="#registar" class="botao destaque">Registrar</a>
+        </aside>
+    </header>
+
+    <script>
+        // ONHASHCHANGE função que chama #(ancora for alterada #)
+        window.onhashchange = function(e) {
+            const oldURL  = e.oldURL.split('#') [1]
+            const newURL  = e.newURL.split('#') [1]
+            console.log(oldURL, newURL)
+            const oldLink = document.querySelector(`.menu a[href='#${oldURL}']`)
+            const newLink = document.querySelector(`.menu a[href='#${newURL}']`)
+            oldLink && oldLink.classList.remove('selected')
+            newLink && newLink.classList.add('selected')
+
+        }
+    </script>
+</body>
+
+</html>
