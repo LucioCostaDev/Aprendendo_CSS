@@ -7,19 +7,55 @@
     <style>
         html,
         body {
+            /* espaçamento entre os elementos*/
             margin: 20px;
+            /* aqui está definindo a altura maxima do corpo a aqual vai ser utilizado ou seja  */
             height: calc(100% - 40px);
             background-color: lightgray;
         }
         
         div {
+            /* torna os elementos flutuantes */
             display: flex;
+            /* alinha os elementos ao meio */
             align-items: center;
+            /* alinha os conteudos ao meio */
             justify-content: center;
+            /* tamanho da fonte */
             font-size: 30px;
+            /* cria uma borda  */
             border: solid 5px dodgerblue;
+            /* cor do fundo */
             background: #fff;
         }
+
+        body {
+            /* utilização de grids */
+            display: grid;
+            /* criação de 3 colunas e dando nomes as mesmas */
+            grid-template-columns: 
+            [inicio] 1fr 
+            [metade-1 meio-1] 1fr 
+            [metade-2 meio-2] 1fr [fim];
+            /* quase igual a mesma colocação de cima porem para e linha e utilizando o repeat   */
+            grid-template-rows: repeat(3, 1fr);
+        }
+
+        .d1 {
+            /* Aqui ta deifinindo que o d1 va inicia após a coluna 2 */
+            grid-column-start: metade-2;
+            /* Aqui ta definindo que após isso o restantes vão para proxima linha */
+            grid-column-end: fim;
+            /* Aqui a declaração e a mesma de cima porem de forma direta obs. a sintaxe tem que ser utilizada a (/) barra*/
+            grid-column: meio-1 / fim;
+            /* Outra forma de expandir a linha */
+            grid-row: 1 / span2;
+            /* A ORDEM CORRETA DE SE UTILIZAR */
+            /* row-start column-start row-end column-end */
+            grid-area: 1 / meio-1 / span 3 / fim;
+
+        }
+        
     </style>
 </head>
 
