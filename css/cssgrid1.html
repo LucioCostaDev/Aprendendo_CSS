@@ -34,40 +34,60 @@
             display: grid;
             /* Grind template aqui defini duas colunas com 50% de 100% padrão da pagina*/
             grid-template-columns: 50% 50%;
-            /* grid com propriedade repeat  */
+            /* grid com propriedade repeat 4 x 3 = 12 col de (8,33% largura) */
             grid-template-columns: repeat(4, 8.33% 8.33% 8.33%);
-            /* grid-template-columns: repeat(12, 8.33%); */
-            /* grid-template-columns: repeat(11, 100px) 100px; */
+            /* grid-template: repeat aqui cria 12 colunas de 8.33% */
+            grid-template-columns: repeat(12, 8.33%);
+            /* grind-template:repeat 11 col de 100px, visto que pode ser adcionado apos outra propriedade*/
+            grid-template-columns: repeat(11, 100px) 100px;
             /* minmax (100px, 300px) */
-            /* grid-template-columns: 200px 20% 1fr; */
-            /* grid-template-columns: 3fr 6fr 3fr; */
-            /* grid-template-rows: 50% 25% 12.5% 12.5%; */
-            /* grid-template-rows: 100px 1fr; */
-            /* grid-template-rows: 100px auto; */
+            /* grind-template ele cria 3 colunas, 1-de tamanho fixo de 200px, 2- menos 20%, 3- (fragmento ou seja o restante de 100% da tela */
+            grid-template-columns: 200px 20% 1fr;
+            /* Quase seguinho o padrão bootstrap grid-template foi divido o 1º 3 fr, 2º 6 fr, 3º fr totalizando 12 fr */
+            grid-template-columns: 3fr 6fr 3fr;
+            /* grid-template pode ser usado para linhas tbm de cima pra baixo de acordo com os valores passados */
+            grid-template-rows: 50% 25% 12.5% 12.5%;
+            /* Aqui foi definido 100px para primeira linha, segunda linha definido 1 fragento que vai pega o total do tamanho porém o restante das linhas vão ter tamanhos de acordo restante de espaço ou tamanho do elementos */
+            grid-template-rows: 100px 1fr;
+            /* aqui o grid-template defini a primeira linha, e o restante fica automatido de acordo com elementos  */
+            grid-template-rows: 100px auto auto auto;
 
-        /* } */
-            
-        /* .d8 { */
-                /* grid-column-start: 2; */
-                /* grid-column-end: 4; */
-                /* grid-column-end: span 2; */
-                /* grid-row-start: 3; */
-                /* grid-row-end: 5; */
-                /* grid-row-end: span 2; */
-            /* } */
+        }
 
-        /* .d10, */
-        /* .d11 { */
+        /*  (div) classe d8 definida para ser alterada dento do grid*/
+        .d8 {
+                /* alteração inicial apartir da coluna 2 */
+                grid-column-start: 2;
+                /* definida para termina na col 4 */
+                grid-column-end: 4;
+                /* aqui tem a mesma função acima */
+                grid-column-end: span 2;
+                /* aqui outro ex. porem iniciando da 3º linha */
+                grid-row-start: 3;
+                /* Aqui vai finaliza na 5º linha ou seja caso tenha mais elementos e criado outra linha que não afetara a coluna acima  */
+                grid-row-end: 5;
+                /* o span e definido como mais didatico */
+                grid-row-end: span 2;
+            }
+
+        .d10,
+        .d11 {
             /* podem se sobrepor */
-            /* grid-column-start: 1; */
-            /* grid-column-end: 3; */
-            /* grid-row-start: 5; */
-            /* grid-row-end: span 1; */
-        /* } */
+            /* Vai iniciar a partir da 1º linha*/
+            grid-column-start: 1;
+            /* E finalizar na 3º linha ou seja dois espaços entre elas */
+            grid-column-end: 3;
+            /* Outro  exemplo porém sobrepondo  */
+            /* Iniciando na 5º linha  */
+            grid-row-start: 5;
+            /* E finalizando na linha 1º, ou seja está sobrepondo a d10 */
+            grid-row-end: span 1;
+        }
 
-        /* .d10 { */
-            /* z-index: 0; */
-        /* } */
+        .d10 {
+            /* A Propriedade z-index te com obejeitvo da aos elementos, prioridades de profundidade ou seja quem vai aparecer decorrente da chamada no grid e os valores para ficar abaixo 3 so colocar negativo -1 */
+            z-index: 0;
+        }
         
         
     </style>
