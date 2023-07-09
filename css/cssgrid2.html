@@ -39,6 +39,15 @@
             [metade-2 meio-2] 1fr [fim];
             /* quase igual a mesma colocação de cima porem para e linha e utilizando o repeat   */
             grid-template-rows: repeat(3, 1fr);
+
+            /* espaço entre colunas */
+            column-gap: 20px;
+            /* espaço entre linhas */
+            row-gap: 20px;
+            /* shortcut de grid gap, 1º 50px na linhas 2º 10px nas colunas */
+            gap: 50px 10px;
+            /* caso colocoque apenas um argumento tanto a linha como coluna ficam com a mesma quantidade */
+            gap: 10px;
         }
 
         .d1 {
