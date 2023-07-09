@@ -6,7 +6,63 @@
     <title>CSS Grid #03</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            grid-area: cabecalho;
+        }
+
+        nav {
+            grid-area: navegacao;
+        }
+
+        main {
+            grid-area: conteudo;
+        }
+
+        footer {
+            grid-area: rodape;
+        }
+
+        body {
+            /* utilzação de grid*/
+            display: grid;
+            /* vai definir a altura para a tela inteira */
+            min-height: 100vh;
+            /* Aqui vai ser difinido para 1º coluna 300px e o restantes vai completar os espaço inteiro da tela */
+            grid-template-columns: 300px 1fr;
+            /* aqui vai ser definido as linhas, 
+            1º linha o cabeçalho com 100px
+            2º linha que vai ser o meio onde vai ficar os conteudos e vai ser preenchido por completo
+            3º linha vai ser a parte de baixo do rodapé com 100px
+            */
+            grid-template-rows: 100px 1fr 100px;
+            /* aqui vai ser difinido a organização dos grids */
+            grid-template-areas:
+                /* duas primeiras colunas em cima  */
+                'cabecalho cabecalho'
+                /* no meio */
+                'navegacao conteudo'
+                /* me baixo*/
+                'rodape rodape';
+        }
+         /* Aqui defini uma configuração para dispositivos moveis */
+        @media (max-width: 700px){
+            body {
+                /* aqui defini uma unica coluna */
+                grid-template-columns: 1fr;
+                /* aqui defiini na 1º linha  2º linha 3º linha 3 4º linha*/
+                grid-template-rows: 80px 80px  1fr 100px;
+                grid-template-areas:'cabecalho''navegacao''conteudo''rodape';
+            }
+            
+            /* Aqui caso vc queira deifinir para não aparecer cabeçalho de acordo que vai diminuindo a tela, obs. tem que tirar do grid templatej areas o cabecalho */
+            /* header { display: none;} */
+        }
+
     </style>
 </head>
 
@@ -20,3 +76,12 @@
 </body>
 
 </html>
+
+<!-- 
+1º foi colocado (*) style  para tirar padding e margin padrão dos broswer
+2º foi criar header, nav, main, footer com propriedade grid-area e renomeando as mesmas de acordo 
+3º foi a criação de body, dando propriedades para organizar as outras tag
+4º foi criado os espaçamento das colunas e linhas criando o layout que no exemplo está sendo (6)
+
+5º caso queira pode ser utilizado um @media para deixar o site mais responsivo 
+  -->
