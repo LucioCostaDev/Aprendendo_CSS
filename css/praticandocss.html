@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Praticando CSS grid</title>
+    <style>
+        /* grid container */
+        /*  .container {
+            display: grid;
+            grid-template-columns: 100px 100px 100px 100px;  / / cria uma grid com ?(numeros)coluna de largura fixa / /
+            grid-template-rows: 60px 60px;  / / cria um grid com ?(linhas) de altura fixa / / */
+        /* grid-template: 80px 100px 100px / 100px 50px 80px 200px; forma abreviada de declarar o grid mostrado anteriormente */
+
+        /* grid-template-areas: 
+            "nome1 nome2 nome3"
+            "nome4 nome4 nome3"; */
+
+        /* gap: 10px; */
+        /* observando ordem de prioridade 1º coluna 2º linha */
+        /* grid-auto-flow: column;  ele defini de modo automatico que elementos preencham uma coluna de acordo com o tamanho da tela e com isso, muda a forma padrão de ajusta os grid items que seria da esquerda para direita de cima para  */
+
+        /* } */
+        .container {
+            display: grid;
+            grid-template-columns: 100px 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px 100px;
+            gap: 10px;
+            grid-auto-flow: row;
+            margin-bottom: 50px;
+
+        }
+
+        .container1 {
+            display: grid;
+            grid-template-columns: 100px 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px 100px;
+            gap: 10px;
+            grid-auto-flow: dense;
+        }
+
+        div .box1, .box5, .box6 {
+            background-color: gray;
+        }
+
+        .box1 {grid-column: 1 / span 4;}
+        .box2 { grid-column: auto / span 2; background-color: red;}
+        .box3 { grid-area: auto / 1 / auto / 3; background-color: blue;}
+        .box4 { grid-area: 2 / 3 / 4 / 5; background-color: yellow;}
+        .box5 {}
+        .box6 {}
+
+        /* aqui defini automatico o layout   */
+        /* .box2 {grid-column: auto / span 2; background-color: red;} */
+        /* .box3 {grid-area: auto / 1 / auto / 3; background-color: blue;} */
+
+        /* .box1 {grid-area: nome1;background-color: blue}
+        .box2 {grid-area: nome2;background-color: red;}
+        .box3 {grid-area: nome3;background-color: yellow;}
+        .box4 {grid-area: nome4;background-color: green;} */
+
+        /* .topo {
+            background-color: blue;
+            grid-area: 1 / 1 / 2 / 4;
+        }
+        .menu {
+            background-color: rgb(15, 146, 26);
+            grid-area: 2 / 1 / 3 / 4;
+        }
+        .principal {
+            background-color: rgb(199, 187, 18);
+            grid-area: 3 / 2 / 4 / 3;
+        }
+        .primaria {
+            background-color: rgb(134, 10, 87);
+            grid-area: 3 / 1 / 4 / 2; 
+        }
+        .secundaria {
+            background-color: rgb(18, 163, 199);
+            grid-area: 3 / 3 / 4 / 4 ;
+        }
+        .rodape {
+            background-color: rgb(18, 163, 199);
+            grid-area: 4 / 1 / 5 / 4;
+        } */
+    </style>
+
+<body>
+    </head>
+    <!-- grid pai -->
+    <div class="container">
+        <!--elementos-filhos declarado como (grid items)  -->
+        <div class="box box1">Box 1</div>
+        <div class="box box2">Box 2</div>
+        <div class="box box3">Box 3</div>
+        <div class="box box4">Box 4</div>
+        <div class="box box5">Box 5</div>
+        <div class="box box6">Box 6</div>
+
+        <!-- <header class="topo">Topo</header> 
+        <nav class="menu">Menu</nav> 
+        <main class="principal">Principal</main>
+        <aside class="primaria">Primária</aside>
+        <aside class="secundaria">secundaria</aside>
+        <footer class="rodape">Rodapé</footer> -->
+    </div>
+    <div class="container1">
+        <!--elementos-filhos declarado como (grid items)  -->
+        <div class="box box1">Box 1</div>
+        <div class="box box2">Box 2</div>
+        <div class="box box3">Box 3</div>
+        <div class="box box4">Box 4</div>
+        <div class="box box5">Box 5</div>
+        <div class="box box6">Box 6</div>
+    </div>
+</body>
+
+</html>
+
+<!-- O posionamento dos itens por padrão são posicionados de cima para baixo e da esquerda para direita  
+
+.box1 {
+            background-color: rgb(70, 181, 189);
+            grid-column-start: 1; /* coluna que inicia na grid line vertical números 1 */
+            grid-column-end: 5; /* coluna que inicia na grid line vertical números 5 */
+            grid-row-start: 3; /* linha que inicia na grid line horizontal número 3 */
+            grid-row-end: 4; /* linha que inicia na grid line horizontal número 4 */
+            grid-column: 1 / 5; /* essa sintaxe abreviada e equivalente as duas anteriores referente a coluna */
+            grid-row: 3 / 4; /* essa sintaxe abreviada e equivalente as duas anteriores regfenrente a linha */
+}
+
+.box2 {
+            background-color: rgb(163, 176, 180);
+            grid-column-start: 3; /* coluna que inicia na grid line vertical números 3 */
+            grid-column-end: 5; /* coluna que inicia na grid line vertical números 5 */
+            grid-row-start: 1; /* linha que inicia na grid line horizontal número 1 */
+            grid-row-end: 3; /* linha que inicia na grid line horizontal número 3 */
+            grid-column: 3 / 5; /* essa sintaxe abreviada e equivalente as duas anteriores referente a coluna */
+            grid-row: 1 / 3; /* essa sintaxe abreviada e equivalente as duas anteriores referente a linha */
+}
+
+.box1 {
+            background-color: rgb(70, 181, 189);
+            grid-column: 1 / 5; /* essa sintaxe abreviada e equivalente as duas anteriores referente a coluna */
+            grid-row: 3 / 4; /* essa sintaxe abreviada e equivalente as duas anteriores regfenrente a linha */
+        }
+
+        .box2 {
+            background-color: rgb(163, 176, 180);
+           
+            grid-area: 1 / 3 / 3 / 5 ; /* aqui o grid area junta os inicio e fim tanto das linhas, como das colunas start row / start col / end row / end col */
+        }
+
+        Definição de layout utilizando mumero ou seja grid-area: row inicial / col inicial / row final / col final 
+        .topo {
+            background-color: blue;
+            grid-area: 1 / 1 / 2 / 4;
+        }
+        .menu {
+            background-color: rgb(15, 146, 26);
+            grid-area: 2 / 1 / 3 / 4;
+        }
+        .principal {
+            background-color: rgb(199, 187, 18);
+            grid-area: 3 / 2 / 4 / 3;
+        }
+        .primaria {
+            background-color: rgb(134, 10, 87);
+            grid-area: 3 / 1 / 4 / 2; /* row col row col */
+        }
+        .secundaria {
+            background-color: rgb(18, 163, 199);
+            grid-area: 3 / 3 / 4 / 4 ;
+        }
+        .rodape {
+            background-color: rgb(18, 163, 199);
+            grid-area: 4 / 1 / 5 / 4;
+        }
+
+        <header class="topo">Topo</header> 
+        <nav class="menu">Menu</nav> 
+        <main class="principal">Principal</main>
+        <aside class="primaria">Primária</aside>
+        <aside class="secundaria">secundaria</aside>
+        <footer class="rodape">Rodapé</footer>
+
+-->
