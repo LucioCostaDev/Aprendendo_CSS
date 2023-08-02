@@ -21,34 +21,79 @@
         /* grid-auto-flow: column;  ele defini de modo automatico que elementos preencham uma coluna de acordo com o tamanho da tela e com isso, muda a forma padrão de ajusta os grid items que seria da esquerda para direita de cima para  */
 
         /* } */
-        .container {
+        /* .container {
             display: grid;
-            grid-template-columns: 100px 100px 100px 100px;
-            grid-template-rows: 100px 100px 100px 100px;
-            gap: 10px;
-            grid-auto-flow: row;
+            grid-template-columns: repeat(12, 7%); / define 12 colunas fixas com largura de 7% ou seja 12 * 7 = 84% /
+            grid-template-rows: repeat(10, 9vh); / defini 10 linhas com altura igual a 4vh ou seja 4% da altura da viewport ou seja 10x4=40 40% da altura do viewport /
+            gap: calc( (100% - 7%*12) / 11) ;
+        } */
+
+        /* .container {
+            display: grid;
+            grid-template-columns: 2fr repeat(6, 1fr) 2fr;
+            grid-template-rows: repeat(8, 1fr);
+            gap: 10px 20px;
+            height: 80vh;
+        } */
+
+        /* .container {
+            display: grid;
+            grid-template-columns: 200px minmax(200px, 1fr) 200px;
+            grid-template-rows: 50px minmax(200px, auto) 50px;
+            gap: 10px 20px;
+        } */
+
+        .container, .container1 {
+            display: grid;
+            grid-template-columns: repeat(3,minmax(100px, 1fr));
+            grid-template-rows: repeat(4, 80px);
+            /* gap: 10px; */
             margin-bottom: 50px;
-
         }
 
-        .container1 {
-            display: grid;
-            grid-template-columns: 100px 100px 100px 100px;
-            grid-template-rows: 100px 100px 100px 100px;
-            gap: 10px;
-            grid-auto-flow: dense;
-        }
-
-        div .box1, .box5, .box6 {
+        div{
             background-color: gray;
         }
+        .box1 {
+            grid-column: 1 / span 2;
+            grid-row: 1;
+        }
 
-        .box1 {grid-column: 1 / span 4;}
-        .box2 { grid-column: auto / span 2; background-color: red;}
-        .box3 { grid-area: auto / 1 / auto / 3; background-color: blue;}
-        .box4 { grid-area: 2 / 3 / 4 / 5; background-color: yellow;}
-        .box5 {}
-        .box6 {}
+        .box2 {
+            opacity: .7;
+            grid-column: 2 / 4;
+            grid-row: 1 / span 2;
+        }
+
+        .box3 {
+            grid-column: 1;
+            grid-row: 3 / span 2;
+        }
+        .box4 {
+            opacity: .7;
+            grid-column: 2;
+            grid-row: 3 / 5;
+            position: relative;
+            left: -40%;
+            top: -100px;
+        }
+        .container1 > .box1 { z-index: 4;}
+        .container1 > .box2 { z-index: 3;}
+        .container1 > .box3 { z-index: 2;}
+        .container1 > .box4 { z-index: 1;}
+        
+        .box1 { background-color: green;}
+        .box2 { background-color: red;}
+        .box3 { background-color: blue;}
+        .box4 { background-color: rgb(255, 0, 140);}
+
+
+        /* .box1 { grid-column: auto / span 4; background-color: green;}
+        .box2 { grid-column: auto / span 4; background-color: red;}
+        .box3 { grid-area: auto / span 4; background-color: blue;}
+        .box4 { grid-area: auto / span 4; background-color: yellow;}
+        .box5 { grid-area: auto / span 4; background-color: rgb(57, 162, 189);}
+        .box6 { grid-area: auto / span 4; background-color: purple;} */
 
         /* aqui defini automatico o layout   */
         /* .box2 {grid-column: auto / span 2; background-color: red;} */
@@ -89,30 +134,40 @@
     </head>
     <!-- grid pai -->
     <div class="container">
+        <!-- <section>Conteúdo</section>
+        <h1>Título nivel 1</h1>
+        <p>parágrafo</p>
+        Texto dentro do contaniner
+        <span>
+            Lorem ipsum 
+        <em style="display: block">dolor site</em>
+        <strong>amet,</strong>
+        <i>consectetuer adipisicing elit.</i>
+        </span>
+                aqui e uma linha em branco 
+        <!-- <div style="float: right"><p>FLOAT</p></div> --> 
+        
+
         <!--elementos-filhos declarado como (grid items)  -->
         <div class="box box1">Box 1</div>
         <div class="box box2">Box 2</div>
         <div class="box box3">Box 3</div>
         <div class="box box4">Box 4</div>
-        <div class="box box5">Box 5</div>
-        <div class="box box6">Box 6</div>
 
         <!-- <header class="topo">Topo</header> 
         <nav class="menu">Menu</nav> 
         <main class="principal">Principal</main>
         <aside class="primaria">Primária</aside>
-        <aside class="secundaria">secundaria</aside>
+        <aside class="ecundaria">Secundaria</aside>
         <footer class="rodape">Rodapé</footer> -->
     </div>
     <div class="container1">
-        <!--elementos-filhos declarado como (grid items)  -->
         <div class="box box1">Box 1</div>
         <div class="box box2">Box 2</div>
         <div class="box box3">Box 3</div>
         <div class="box box4">Box 4</div>
-        <div class="box box5">Box 5</div>
-        <div class="box box6">Box 6</div>
     </div>
+    
 </body>
 
 </html>
